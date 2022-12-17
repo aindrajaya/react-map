@@ -26,3 +26,6 @@ dist-ssr
 # Lock files
 yarn.lock
 package-lock.json
+
+# ds store
+.DS_Store
