@@ -7,7 +7,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/aindrajaya/react-map">
-    <img src="https://cdn-icons-png.flaticon.com/512/3425/3425077.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">React GIS Application</h3>
