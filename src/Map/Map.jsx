@@ -3,26 +3,36 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import { defaultIcon } from '../assets/icons';
 
-const MarkerLayer = ({pos}) => {
-  return (
-    <Marker position={pos} icon={defaultIcon}>
-      <Popup>
-        This is the town. <br />You can customize it
-      </Popup>
-    </Marker>
-  )
+//data import
+import {cities} from '../data/cities';
+
+console.log(cities, "data from geojson")
+
+const MarkerLayer = ({data}) => {
+  return data.features?.map((feature, idx) => {
+    const {coordinates} = feature.geometry;
+
+    return (
+      <Marker key={idx} position={coordinates} icon={defaultIcon}>
+        <Popup>
+          This is the town. <br />You can customize it
+        </Popup>
+      </Marker>
+    )
+  }) 
 }
 
 const Map = () => {
-  const position = [-7.629900, 111.517113];
+  const positionMadiun = [-7.629900, 111.517113];
+  const positionRomania = [45.943161, 24.966761]
 
   return (
-    <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+    <MapContainer center={positionRomania} zoom={4} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MarkerLayer pos={position} />
+      <MarkerLayer data={cities}/>
     </MapContainer>
   )
 }
