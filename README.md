@@ -51,7 +51,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About the React GIS Application
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://react-map-seven.vercel.app/)
 
 This project enhancing ReactJS GIS implementation using Leaflet. This project has a tool for visualizing and analyzing spatial data. It uses [GeoJSON](http://geojson.org/) files as input and allows users to view and manipulate the data in various ways.
 
