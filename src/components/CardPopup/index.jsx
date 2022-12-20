@@ -1,9 +1,12 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import { Button, Card, InputNumber, Space } from 'antd';
 
-const CardPopup = ({properties}) => {
-  const {name, adm0name, pop_max } = properties;
+const DEFAULT_VALUE = 3000;
+
+const CardPopup = ({feature, setRadiusFilter}) => {
+  const [radius, setRadius] = useState(DEFAULT_VALUE);
+  const {name, adm0name, pop_max } = feature.properties;
   return (
     <Fragment>
       <Card type='inner' title={`City of ${name}`}>
@@ -11,11 +14,15 @@ const CardPopup = ({properties}) => {
         <p>Population: {pop_max}</p>
         <Space>
           <InputNumber
-            defaultValue={3000}
+            defaultValue={DEFAULT_VALUE}
             min={0}
-            onChange={(e) => console.log(e)}
+            onChange={(e) => setRadius(e)}
           ></InputNumber>
-          <Button type='primary' shape='round'>
+          <Button 
+            type='primary' 
+            shape='round' 
+            onClick={() => setRadiusFilter({feature, radius})}
+            >
             Filter by Km
           </Button>
         </Space>
