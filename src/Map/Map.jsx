@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 //data import
@@ -13,8 +13,11 @@ import { mountainIcon } from '../assets/icons/mountainIcon';
 import { DefaultMarkerLayer, TooltipMarkerLayer } from '../components';
 
 const Map = () => {
+  const [radiusFilter, setRadiusFilter] = useState(null);
   const positionMadiun = [-7.629900, 111.517113];
-  const positionRomania = [45.943161, 24.966761]
+  const positionRomania = [45.943161, 24.966761];
+
+  const getRadiusFilter = () => radiusFilter;
 
   return (
     <MapContainer center={positionRomania} zoom={4} scrollWheelZoom={false}>
@@ -22,7 +25,7 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <DefaultMarkerLayer data={cities} icon={defaultIcon}/>
+      <DefaultMarkerLayer data={cities} icon={defaultIcon} setRadiusFilter={setRadiusFilter} getRadiusFilter={getRadiusFilter}/>
       <TooltipMarkerLayer data={mountains} icon={mountainIcon}/>
     </MapContainer>
   )
