@@ -11,6 +11,7 @@ const TooltipMarkerLayer = ({data, icon}) => {
       <Marker 
         key={idx} 
         position={[coordinates[1], coordinates[0]]} 
+        zIndexOffset='999'
         icon={icon}
         eventHandlers={{
           click: (e) => leafletMap.panTo(e.latlng)
