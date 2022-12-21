@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circle } from 'react-leaflet';
+import { Circle, Tooltip } from 'react-leaflet';
 
 const RadiusFilterLayer = ({radiusFilter, setRadiusFilter}) => {
   if(radiusFilter){
@@ -12,9 +12,23 @@ const RadiusFilterLayer = ({radiusFilter, setRadiusFilter}) => {
           dblclick: (e) => {
             e.originalEvent.view.L.DomEvent.stopPropagation(e)
             setRadiusFilter(null);
-          }
+          },
         }}
-      />
+        /**
+           * It will be function to show tooltip when moustover the circle
+           */
+        onMouseOver={(e) => {
+          e.target.openTooltip()
+        }}
+        onMouseOut={(e) => {
+          e.target.closeTooltip();
+        }}
+        color={'#57b83b'}
+        weight={1}
+        fillOpacity={0.2}
+      >
+        <Tooltip>Double click to close!</Tooltip>
+      </Circle>
     );
   } else {
     return null;
