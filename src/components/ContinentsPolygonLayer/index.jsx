@@ -1,7 +1,9 @@
 import React from 'react';
 import { GeoJSON, Tooltip } from 'react-leaflet';
 
-const ContinentsPolygonLayer = ({data, setGeoFilter}) => {
+const ContinentsPolygonLayer = ({data, setGeoFilter, getGeoFilter}) => {
+  const geoFilter = getGeoFilter();
+
   return (
     <GeoJSON 
       key='geo-json-layer' 
@@ -11,6 +13,13 @@ const ContinentsPolygonLayer = ({data, setGeoFilter}) => {
           const sameValue = prevState === e.propagatedFrom.feature;
           return sameValue ? null: e.propagatedFrom.feature;
         })
+      }}
+      style={(feature) => {
+        return {
+          color: geoFilter === feature ? 'red' : 'blue',
+          weight: 0.5,
+          fillOpacity: 0.4
+        }
       }}
       // onMouseOver={(e) => {
       //   e.target.openTooltip()
