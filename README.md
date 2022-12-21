@@ -101,6 +101,7 @@ Geospatial data taken from this [GeoJSON file](https://d2ad6b4ur7yvpq.cloudfront
 * Custom marker
 * Filter radius based on Marker (City)
 * Custom circle radius (add tooltip for more information)
+* Geo filter, filter by continents
 * ~~Analyse geospatial data ()~~ (Under development)
 * etc...
 
