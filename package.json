@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@turf/boolean-point-in-polygon": "6.5.0",
     "antd": "5.1.1",
     "leaflet": "1.9.3",
     "react": "^18.2.0",
