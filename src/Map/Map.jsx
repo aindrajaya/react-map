@@ -15,10 +15,13 @@ import { DefaultMarkerLayer, RadiusFilterLayer, TooltipMarkerLayer, ContinentsPo
 
 const Map = () => {
   const [radiusFilter, setRadiusFilter] = useState(null);
+  const [geoFilter, setGeoFilter] = useState(null);
+
   const positionMadiun = [-7.629900, 111.517113];
   const positionRomania = [45.943161, 24.966761];
 
   const getRadiusFilter = () => radiusFilter;
+  const getGeoFilter = () => geoFilter;
 
   return (
     <MapContainer center={positionRomania} zoom={4} scrollWheelZoom={false}>
@@ -29,7 +32,7 @@ const Map = () => {
       <DefaultMarkerLayer data={cities} icon={defaultIcon} setRadiusFilter={setRadiusFilter} getRadiusFilter={getRadiusFilter}/>
       <TooltipMarkerLayer data={mountains} icon={mountainIcon}/>
       <RadiusFilterLayer radiusFilter={radiusFilter} setRadiusFilter={setRadiusFilter}/>
-      <ContinentsPolygonLayer data={continents}/>
+      <ContinentsPolygonLayer data={continents} setGeoFilter={setGeoFilter} getGeoFilter={getGeoFilter}/>
     </MapContainer>
   )
 }
