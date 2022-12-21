@@ -21,21 +21,13 @@ const CardPopup = ({feature, setRadiusFilter}) => {
           <Button 
             type='primary' 
             shape='round' 
+            style={{background: '#57b83b', borderColor: '#57b83b'}}
             onClick={() => setRadiusFilter((prevState) => {
-              let newFilter;
-              if(prevState){
-                if(radius === 0){
-                  newFilter = prevState
-                } else {
-                  const sameFeature = prevState.feature === feature;
-                  const sameRadius = prevState.radius === radius;
-                  if(!sameFeature || !sameRadius){
-                    newFilter = {feature, radius}
-                  } 
-                }
-              } else if (radius !== 0) {
-                newFilter = {feature, radius}
-              }
+              const newFilter = radius !== 0
+                ? {feature, radius}
+                : prevState && (radius === 0 || (prevState.feature === feature && prevState.radius === radius))
+                ? prevState
+                : undefined;
               return newFilter;
             })}
             >
