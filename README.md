@@ -100,6 +100,7 @@ Geospatial data taken from this [GeoJSON file](https://d2ad6b4ur7yvpq.cloudfront
 * Show map Marker from the Geospatial Data above
 * Custom marker
 * Filter radius based on Marker (City)
+* Custom circle radius (add tooltip for more information)
 * ~~Analyse geospatial data ()~~ (Under development)
 * etc...
 
