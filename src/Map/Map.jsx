@@ -32,7 +32,7 @@ const Map = () => {
       <DefaultMarkerLayer data={cities} icon={defaultIcon} setRadiusFilter={setRadiusFilter} getRadiusFilter={getRadiusFilter} getGeoFilter={getGeoFilter}/>
       <TooltipMarkerLayer data={mountains} icon={mountainIcon}/>
       <RadiusFilterLayer radiusFilter={radiusFilter} setRadiusFilter={setRadiusFilter}/>
-      <ContinentsPolygonLayer data={continents} setGeoFilter={setGeoFilter} getGeoFilter={getGeoFilter}/>
+      <ContinentsPolygonLayer data={continents} setGeoFilter={setGeoFilter}/>
     </MapContainer>
   )
 }
