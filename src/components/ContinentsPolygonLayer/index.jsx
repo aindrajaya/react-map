@@ -16,7 +16,7 @@ const ContinentsPolygonLayer = ({data, setGeoFilter, getGeoFilter}) => {
       }}
       style={(feature) => {
         return {
-          color: geoFilter === feature ? 'red' : 'blue',
+          color: geoFilter === feature ? '#22b473': '#bef1da',
           weight: 0.5,
           fillOpacity: 0.4
         }
