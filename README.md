@@ -137,4 +137,4 @@ This application is licensed under the MIT License. See the [LICENSE](LICENSE) f
 [issues-url]: https://github.com/aindrajaya/react-map/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/aindrajaya
-[product-screenshot]: src/assets/screenshot.png
+[product-screenshot]: src/assets/screenshot.gif
