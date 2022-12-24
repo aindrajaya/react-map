@@ -1,9 +1,9 @@
 import React from 'react';
-import {Marker, Tooltip, useMap } from 'react-leaflet';
+import {LayersControl, Marker, Tooltip, useMap } from 'react-leaflet';
 
 const TooltipMarkerLayer = ({data, icon}) => {
   const leafletMap = useMap()
-  return data.features.map((feature, idx) => {
+  const layer = data.features.map((feature, idx) => {
     const {coordinates} = feature.geometry;
     const {name, elevation, continent} = feature.properties;
 
@@ -23,8 +23,13 @@ const TooltipMarkerLayer = ({data, icon}) => {
           Elevation: <b>{elevation} m</b>
         </Tooltip>
       </Marker>
-    )
-  })
+    );
+  });
+  return (
+    <LayersControl.Overlay checked name='Mountains Layer'>
+      {layer}
+    </LayersControl.Overlay>
+  )
 }
 
 export default TooltipMarkerLayer;

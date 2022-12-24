@@ -1,6 +1,6 @@
 import React from 'react';
 import L from 'leaflet'
-import { Marker, Popup } from 'react-leaflet';
+import {LayersControl, Marker, Popup } from 'react-leaflet';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 
 import CardPopup from '../CardPopup';
@@ -16,8 +16,8 @@ const DefaultMarkerLayer = ({data, icon, setRadiusFilter, getRadiusFilter, getGe
     centerPoint = L.latLng(coordinates[1], coordinates[0]);
   }
 
-  console.log(radiusFilter);
-  return data.features
+  // console.log(radiusFilter);
+  const layer = data.features
   .filter((currenFeature) => {
     let filterByRadius;
     let filterByGeo;
@@ -51,8 +51,12 @@ const DefaultMarkerLayer = ({data, icon, setRadiusFilter, getRadiusFilter, getGe
           <CardPopup feature={feature} setRadiusFilter={setRadiusFilter}/>
         </Popup>
       </Marker>
-    )
-  }) 
+    );
+  });
+  return (
+  <LayersControl.Overlay checked name='World Cities'>
+    {layer}
+  </LayersControl.Overlay> )
 }
 
 export default DefaultMarkerLayer;
