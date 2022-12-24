@@ -1,6 +1,6 @@
 import React from 'react';
 import L from 'leaflet'
-import {LayersControl, Marker, Popup } from 'react-leaflet';
+import {LayersControl, Marker, Popup, LayerGroup } from 'react-leaflet';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 
 import CardPopup from '../CardPopup';
@@ -55,7 +55,9 @@ const DefaultMarkerLayer = ({data, icon, setRadiusFilter, getRadiusFilter, getGe
   });
   return (
   <LayersControl.Overlay checked name='World Cities'>
-    {layer}
+    <LayerGroup>
+      {layer}
+    </LayerGroup>
   </LayersControl.Overlay> )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {LayersControl, Marker, Tooltip, useMap } from 'react-leaflet';
+import {LayersControl, Marker, Tooltip, useMap, LayerGroup } from 'react-leaflet';
 
 const TooltipMarkerLayer = ({data, icon}) => {
   const leafletMap = useMap()
@@ -27,7 +27,9 @@ const TooltipMarkerLayer = ({data, icon}) => {
   });
   return (
     <LayersControl.Overlay checked name='Mountains Layer'>
-      {layer}
+      <LayerGroup>
+        {layer}
+      </LayerGroup>
     </LayersControl.Overlay>
   )
 }
