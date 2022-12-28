@@ -31,7 +31,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-react-gis-application">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -43,6 +43,7 @@
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#feature-and-data-analysis">Features and Data Analysis</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
@@ -60,6 +61,7 @@ This projects is built with
 * [Leaflet](https://leafletjs.com/) for mapping and visualization
 * [React](https://reactjs.org/) is a JavaScript library for building user interfaces
 * [Vite](https://vitejs.dev/) a javascript build tool
+* [GeoJSON](https://geojson.org/) is a format for encoding a variety of geographic data structures.
 
 
 <!-- GETTING STARTED -->
@@ -88,6 +90,17 @@ This will start the application and open a web browser window with the applicati
 
 See the [open issues](https://github.com/aindrajaya/react-map/issues) for a list of proposed features (and known issues).
 
+<!-- FEATURE -->
+## Feature and Data Analysis
+### Data 
+Geospatial data taken from this [GeoJSON file](https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_50m_populated_places_simple.geojson). At this phase I just converted to JavaScript object variable to make it simple to use, and for the next phase it will be `.json` file.
+> *Note:* Geospatial data refers to data that is associated with a specific location on the earth's surface. This can include data about geographical features, such as rivers, mountains, and roads, as well as data about human-made structures, such as buildings, bridges, and pipelines.
+
+### Features
+* Show map Marker from the Geospatial Data above
+* ~~Analyse geospatial data ()~~ (Under development)
+* etc...
+
 
 
 <!-- CONTACT -->
@@ -104,6 +117,7 @@ This application is licensed under the MIT License. See the [LICENSE](LICENSE) f
 ## Acknowledgements
 * [React](https://reactjs.org/)
 * [Leaflet](https://leafletjs.com/)
+* [GeoJSON](https://geojson.org/)
 * [Vite](https://vitejs.dev/)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Img Shields](https://shields.io)
