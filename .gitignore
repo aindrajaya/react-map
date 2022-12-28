@@ -29,3 +29,5 @@ package-lock.json
 
 # ds store
 .DS_Store
+
+/simpanan
