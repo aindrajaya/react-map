@@ -1,24 +1,16 @@
 import React from 'react';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-
-import { defaultIcon } from '../assets/icons';
+import { MapContainer, TileLayer } from 'react-leaflet';
 
 //data import
 import {cities} from '../data/cities';
+import {mountains} from '../data/mountains';
 
-const MarkerLayer = ({data}) => {
-  return data.features?.map((feature, idx) => {
-    const {coordinates} = feature.geometry;
+//Marker icon
+import { defaultIcon } from '../assets/icons/defaultIcon';
+import { mountainIcon } from '../assets/icons/mountainIcon';
 
-    return (
-      <Marker key={idx} position={[coordinates[1], coordinates[0]]} icon={defaultIcon}>
-        <Popup>
-          This is the town. <br />You can customize it
-        </Popup>
-      </Marker>
-    )
-  }) 
-}
+//Layer
+import { DefaultMarkerLayer, TooltipMarkerLayer } from '../components';
 
 const Map = () => {
   const positionMadiun = [-7.629900, 111.517113];
@@ -30,7 +22,8 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <MarkerLayer data={cities}/>
+      <DefaultMarkerLayer data={cities} icon={defaultIcon}/>
+      <TooltipMarkerLayer data={mountains} icon={mountainIcon}/>
     </MapContainer>
   )
 }
