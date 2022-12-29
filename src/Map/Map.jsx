@@ -10,7 +10,7 @@ import { defaultIcon } from '../assets/icons/defaultIcon';
 import { mountainIcon } from '../assets/icons/mountainIcon';
 
 //Layer
-import { DefaultMarkerLayer, TooltipMarkerLayer } from '../components';
+import { DefaultMarkerLayer, RadiusFilterLayer, TooltipMarkerLayer } from '../components';
 
 const Map = () => {
   const [radiusFilter, setRadiusFilter] = useState(null);
@@ -27,6 +27,7 @@ const Map = () => {
       />
       <DefaultMarkerLayer data={cities} icon={defaultIcon} setRadiusFilter={setRadiusFilter} getRadiusFilter={getRadiusFilter}/>
       <TooltipMarkerLayer data={mountains} icon={mountainIcon}/>
+      <RadiusFilterLayer radiusFilter={radiusFilter} setRadiusFilter={setRadiusFilter}/>
     </MapContainer>
   )
 }
