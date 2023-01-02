@@ -1,11 +1,10 @@
 import React from 'react';
-import { Circle, Tooltip } from 'react-leaflet';
+import { Circle, LayersControl, Tooltip } from 'react-leaflet';
 
 const RadiusFilterLayer = ({radiusFilter, setRadiusFilter}) => {
   if(radiusFilter){
     const {coordinates} = radiusFilter.feature.geometry;
-    return (
-      <Circle 
+    const layer = <Circle 
         center={[coordinates[1], coordinates[0]]}
         radius={radiusFilter.radius * 1000}
         eventHandlers={{
@@ -29,7 +28,11 @@ const RadiusFilterLayer = ({radiusFilter, setRadiusFilter}) => {
       >
         <Tooltip>Double click to close!</Tooltip>
       </Circle>
-    );
+    return (
+      <LayersControl.Overlay>
+        {layer}
+      </LayersControl.Overlay>
+    )
   } else {
     return null;
   }
