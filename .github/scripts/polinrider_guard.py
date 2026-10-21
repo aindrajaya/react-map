@@ -184,7 +184,7 @@ def main():
             print(f'error: tidak bisa membaca {ref}: {e.stderr.decode(errors="replace").strip()}', file=sys.stderr)
             return 2
 
-    short = lambda r: re.sub(r'^refs/(remotes/origin|heads)/', '', r)
+    short = lambda r: re.sub(r'^refs/(remotes/origin|heads|scan)/', '', r)
     for ref, path, rule, detail in findings:
         msg = RULES[rule] + (f' ({detail})' if detail else '')
         if gha:
