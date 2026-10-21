@@ -1,0 +1,39 @@
+# Menolak kode yang memuat indikator malware PolinRider / BeaverTail.
+# Dipasang bersama ruleset "polinrider-guard" di branch default:
+# commit hanya bisa masuk ke main kalau cek ini sudah hijau.
+name: polinrider-guard
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '23 18 * * 0'   # mingguan, Senin 01:23 WIB: sapu semua branch
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: polinrider-guard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    name: polinrider-guard
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+
+      - name: Pindai commit ini
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        run: python3 -I .github/scripts/polinrider_guard.py HEAD
+
+      - name: Pindai semua branch
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git fetch --quiet --depth=1 --no-tags origin '+refs/heads/*:refs/remotes/origin/*'
+          python3 -I .github/scripts/polinrider_guard.py --all-branches
